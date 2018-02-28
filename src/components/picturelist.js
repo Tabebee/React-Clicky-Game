@@ -1,15 +1,23 @@
 import React from 'react';
 import Pictures from './pictures';
 
-const Picturelist = (props) => { // Replace props with ({}) variable in all areas
+const Picturelist = (props) => { // Replace pics with ({}) variable in all areas
+// console.log(props.pics);
+    const picItems = props.pics.map((picsArray) => {
+        return (
+                <Pictures
+                    key={ picsArray.name }
+                    pics={ picsArray }
+                />
+        );
+    });
 
     return (
         <div>
-            <Pictures pics={props} />
+            { picItems }
         </div>
     );
 }
 
 export default Picturelist;
-
 

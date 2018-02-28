@@ -16,7 +16,7 @@ class App extends Component {
             pictures,
             selectedPictures: [],
             score: 0,
-            highScore: 0
+            highscore: 0
         };
 
         const shufflefunction = (shuffleme) => {
@@ -45,9 +45,9 @@ class App extends Component {
         <div>
             <Navbar
                 score = { this.state.score }
-                highscore = { this.state.highScore } />
+                highscore = { this.state.highscore } />
             <Jumbotron />
-            <Picturelist />
+            <Picturelist pics={ this.state.pictures } />
         </div>
     );
   }

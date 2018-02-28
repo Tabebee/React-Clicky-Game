@@ -1,11 +1,11 @@
 import React from 'react';
 
 const PictureItem = (props) => {
-
+console.log("items", props);
     return (
-        <li>
+        <div>
 
-        </li>
+        </div>
     )
 
 }

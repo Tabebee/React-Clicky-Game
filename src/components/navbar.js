@@ -1,22 +1,25 @@
 import React, { Component } from 'react';
-import Navmesaage from './nav-message-text'
+import Navscore from './nav-score'
 
 class Navbar extends Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            score: 0,
-            highscore: 0
+            score: this.props.score,
+            highscore: this.props.highscore
         };
     }
 
     render() {
         return (
-            <nav className='navbar navbar-dark bg-dark navbar-center'>
+            <nav className='navbar navbar-dark bg-dark navbar-center fixedTop '>
                 <div> </div>  {/* This is purposely done to center the next content */}
                 <div> nav </div>
-                <Navmesaage className='right'/>
+                <Navscore className='right'
+                          score={this.state.score}
+                          highscore={this.state.highscore}
+                />
             </nav>
         )
     }
