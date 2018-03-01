@@ -6,8 +6,8 @@ const Picturelist = (props) => { // Replace pics with ({}) variable in all areas
     const picItems = props.pics.map((picsArray) => {
         return (
                 <Pictures
-                    key={ picsArray.name }
                     pics={ picsArray }
+                    key={ picsArray.name }
                 />
         );
     });
