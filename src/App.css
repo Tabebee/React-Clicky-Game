@@ -20,7 +20,12 @@ img {
   height: 180px;
   width: 180px;
   margin: 10px;
+  border: 10px solid black;
   /*background: cornsilk;*/
+}
+
+img:hover {
+  border: 5px solid blue;
 }
 
 

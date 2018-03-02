@@ -47,7 +47,17 @@ class App extends Component {
                 score = { this.state.score }
                 highscore = { this.state.highscore } />
             <Jumbotron />
-            <Picturelist pics={ this.state.pictures } />
+            <Picturelist
+                pics={ this.state.pictures }
+                score={ this.state.score }
+                highscore={ this.state.highscore }
+                onImageSelect={ (image, score, highscore) => {
+                    this.setState({ image });
+                    this.setState({ score });
+                    this.setState({ highscore });
+                    }
+                } // close onImageSelect
+            />
         </div>
     );
   }
