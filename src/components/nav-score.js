@@ -3,7 +3,7 @@ import React from 'react';
 const Navscore = ( { score, highscore }) => {
     return (
         <div>
-            Your Score: { score } High Score { highscore }
+            Your Score: { score } <span className='scoreBorder'> </span> High Score { highscore }
         </div>
     );
 };

@@ -9,11 +9,14 @@
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
   overflow: hidden;
+  background: darkblue !important;
 }
 
 .jumbotron {
   text-align: center;
   padding-bottom: 10px;
+  background: #496FC4;
+  color: snow;
 }
 
 img {
@@ -28,9 +31,10 @@ img:hover {
   border: 5px solid blue;
 }
 
-
-
-
+.scoreBorder {
+  border: 1px solid snow;
+  margin-right: 2px;
+}
 
 
 /*.App {*/
