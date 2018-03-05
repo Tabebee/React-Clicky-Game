@@ -1,17 +1,48 @@
 import React from 'react';
 
-const PictureItem = (props) => {
-console.log("items", props.pics.image);
-// console.log("score", props.score);
+const PictureItem = ({pics, onImageSelect}) => {
+    console.log("this", pics);
+    console.log("this", onImageSelect);
+    let picName = pics.name;
+    let picimage = pics.image;
+
     return (
-            <img src={props.pics.image}
-                 className='img-rounded'
-                 // onClick={ () => onImageSelect() }
-            />
+        <img src={pics.image}
+             className='img-rounded'
+             onClick={ () => onImageSelect(picName, picimage) }
+        />
     );
 }
 
 export default PictureItem;
 
+
+
+
+
+// class PictureItem extends React.Component {
+//     constructor(props) {
+//         super(props);
+//
+//         this.state = {
+//             tempPicture,
+//             pictures,
+//             selectedPictures: []
+//         };
+//     }
+//
+//     render() {
+//         return (
+//             <img src=''
+//                  className='img-rounded'
+//                  onClick={ this.handleChange() }
+//             />
+//         );
+//     }
+//
+//     handleChange() {
+//         this.setState( {})
+//     }
+// }
 
 

@@ -2,7 +2,7 @@ import React from 'react';
 import Pictures from './pictures';
 
 const Picturelist = (props) => { // Replace pics with ({}) variable in all areas
-// console.log(props.score);
+console.log(props);
     const picItems = props.pics.map((picsArray) => {
         return (
                 <Pictures
@@ -10,6 +10,7 @@ const Picturelist = (props) => { // Replace pics with ({}) variable in all areas
                     key={ picsArray.name }
                     score={ props.score }
                     highscore={ props.highscore }
+                    onImageSelect={props.onImageSelect}
                 />
         );
     });

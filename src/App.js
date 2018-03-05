@@ -18,29 +18,36 @@ class App extends Component {
             score: 0,
             highscore: 0
         };
+    }
 
-        const shufflefunction = (shuffleme) => {
-            //  The Fisher-Yates (aka Knuth) shuffle algorithm
-            let currentIndex = shuffleme.length, temporaryValue, randomIndex;
+    shufflefunction () {
+        const shuffleme = this.state.pictures;
 
-            // While there remain elements to shuffle...
-            while (0 !== currentIndex) {
+        //  The Fisher-Yates (aka Knuth) shuffle algorithm
+        let currentIndex = shuffleme.length, temporaryValue, randomIndex;
 
-                // Pick a remaining element...
-                randomIndex = Math.floor(Math.random() * currentIndex);
-                currentIndex -= 1;
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
 
-                // And swap it with the current element.
-                temporaryValue = shuffleme[currentIndex];
-                shuffleme[currentIndex] = shuffleme[randomIndex];
-                shuffleme[randomIndex] = temporaryValue;
-            }
-            return shuffleme;
+            // Pick a remaining element...
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+
+            // And swap it with the current element.
+            temporaryValue = shuffleme[currentIndex];
+            shuffleme[currentIndex] = shuffleme[randomIndex];
+            shuffleme[randomIndex] = temporaryValue;
         }
-        shufflefunction(this.state.pictures);
+        return shuffleme;
+    }
+
+    handleThis(name, image) {
+        console.log(name);
+        console.log(image);
     }
 
   render() {
+      this.shufflefunction();
     return (
         <div>
             <Navbar
@@ -51,12 +58,9 @@ class App extends Component {
                 pics={ this.state.pictures }
                 score={ this.state.score }
                 highscore={ this.state.highscore }
-                onImageSelect={ (image, score, highscore) => {
-                    this.setState({ image });
-                    this.setState({ score });
-                    this.setState({ highscore });
-                    }
-                } // close onImageSelect
+                onImageSelect= { this.handleThis }
+
+                // close onImageSelect
             />
         </div>
     );
@@ -64,3 +68,11 @@ class App extends Component {
 }
 
 export default App;
+
+
+//  Pass selected image back to app
+//  Handle logic with function
+//  Create if else to either setState or
+//      .push to array and increment count
+//      else will reset the game
+//      message will appear fr both with animation
