@@ -48,14 +48,11 @@ class App extends Component {
     handleThis = (name, image) => {
         console.log("name", name);
         console.log("image", image);
-        this.setState({ score: 1 });
+        this.setState({ message: "message changing" });
         this.shufflefunction();
-
-        console.log("this handle", this);
     }
 
   render() {
-      console.log("this ", this);
     return (
         <div>
             <Navbar
