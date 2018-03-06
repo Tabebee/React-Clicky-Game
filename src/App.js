@@ -18,6 +18,9 @@ class App extends Component {
             score: 0,
             highscore: 0
         };
+        this.shufflefunction = this.shufflefunction.bind(this);
+        this.shufflefunction();
+
     }
 
     shufflefunction () {
@@ -41,13 +44,17 @@ class App extends Component {
         return shuffleme;
     }
 
-    handleThis(name, image) {
-        console.log(name);
-        console.log(image);
+    handleThis = (name, image) => {
+        console.log("name", name);
+        console.log("image", image);
+        this.setState({ selectedPictures: name });
+        this.shufflefunction();
+
+        console.log("this handle", this);
     }
 
   render() {
-      this.shufflefunction();
+      console.log("this ", this);
     return (
         <div>
             <Navbar
@@ -75,4 +82,4 @@ export default App;
 //  Create if else to either setState or
 //      .push to array and increment count
 //      else will reset the game
-//      message will appear fr both with animation
+//      message will appear for both with animation

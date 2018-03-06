@@ -1,8 +1,8 @@
 import React from 'react';
 
 const PictureItem = ({pics, onImageSelect}) => {
-    console.log("this", pics);
-    console.log("this", onImageSelect);
+    // console.log("this", pics);
+    // console.log("this", onImageSelect);
     let picName = pics.name;
     let picimage = pics.image;
 
