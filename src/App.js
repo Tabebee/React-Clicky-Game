@@ -15,6 +15,7 @@ class App extends Component {
         this.state = {
             pictures,
             selectedPictures: [],
+            message: '',
             score: 0,
             highscore: 0
         };
@@ -59,7 +60,9 @@ class App extends Component {
         <div>
             <Navbar
                 score = { this.state.score }
-                highscore = { this.state.highscore } />
+                highscore = { this.state.highscore }
+                message={ this.state.message }
+            />
             <Jumbotron />
             <Picturelist
                 pics={ this.state.pictures }

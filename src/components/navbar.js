@@ -6,6 +6,7 @@ class Navbar extends Component {
         super(props);
 
         this.state = {
+            message: this.props.message,
             score: this.props.score,
             highscore: this.props.highscore
         };
@@ -15,7 +16,7 @@ class Navbar extends Component {
         return (
             <nav className='navbar navbar-dark bg-dark navbar-center fixedTop '>
                 <div>React Clicky Game </div>  {/* This is purposely done to center the next content */}
-                <div> message goes here </div>
+                <div> { this.state.message } </div>
                 <Navscore className='right'
                           score={this.state.score}
                           highscore={this.state.highscore}
