@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Navscore from './nav-score'
+import Navscore from './nav-score';
+import Navmessage from './nav-message';
 
 class Navbar extends Component {
     constructor(props) {
@@ -16,7 +17,9 @@ class Navbar extends Component {
         return (
             <nav className='navbar navbar-dark bg-dark navbar-center fixedTop '>
                 <div>React Clicky Game </div>  {/* This is purposely done to center the next content */}
-                <div> { this.state.message } </div>
+                <div>
+                    <Navmessage message={ this.state.message } />
+                </div>
                 <Navscore className='right'
                           score={this.state.score}
                           highscore={this.state.highscore}

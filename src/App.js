@@ -15,7 +15,7 @@ class App extends Component {
         this.state = {
             pictures,
             selectedPictures: [],
-            message: '',
+            message: 'Lets Do This',
             score: 0,
             highscore: 0
         };
@@ -48,7 +48,7 @@ class App extends Component {
     handleThis = (name, image) => {
         console.log("name", name);
         console.log("image", image);
-        this.setState({ selectedPictures: name });
+        this.setState({ score: 1 });
         this.shufflefunction();
 
         console.log("this handle", this);
