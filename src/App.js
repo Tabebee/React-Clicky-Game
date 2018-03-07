@@ -48,8 +48,21 @@ class App extends Component {
     handleThis = (name, image) => {
         console.log("name", name);
         console.log("image", image);
-        this.setState({ message: "message changing" });
-        this.shufflefunction();
+        // this.setState({ message: "message changing" });
+        // this.shufflefunction();
+        const selectedName = name;
+        const statePictures = this.state.selectedPictures;
+
+
+        if (statePictures.length === 0) {
+            statePictures.push(selectedName);
+            this.setState({ selectedPictures: statePictures });
+        } else {
+            statePictures.push(selectedName);
+            this.setState({ selectedPictures: statePictures });
+        }
+
+        console.log(this.state);
     }
 
   render() {
