@@ -9,7 +9,7 @@ const PictureItem = ({pics, onImageSelect}) => {
     return (
         <img src={pics.image}
              className='img-rounded'
-             onClick={ () => onImageSelect(picName, picimage) }
+             onClick={ () => onImageSelect(picName) }
         />
     );
 }

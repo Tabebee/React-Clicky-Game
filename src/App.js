@@ -45,24 +45,63 @@ class App extends Component {
         return shuffleme;
     }
 
-    handleThis = (name, image) => {
-        console.log("name", name);
-        console.log("image", image);
+    handleThis = (name) => {
         // this.setState({ message: "message changing" });
-        // this.shufflefunction();
+        this.shufflefunction();
         const selectedName = name;
         const statePictures = this.state.selectedPictures;
-
+        let oldScore = this.state.score;
+        let oldHighScore = this.state.highscore;
 
         if (statePictures.length === 0) {
             statePictures.push(selectedName);
-            this.setState({ selectedPictures: statePictures });
-        } else {
-            statePictures.push(selectedName);
-            this.setState({ selectedPictures: statePictures });
+            let score = oldScore + 1;
+            this.setState({ score, selectedPictures: statePictures, message: "Yay First Point!" });
+            console.log("first ",statePictures);
+            console.log("score ", this.state.score);
+            return;
+        } else if (statePictures.length > 0) {
+            for (let i = 0; i < statePictures.length; i++) {
+                if (selectedName === statePictures[i]) {
+                    console.log("whoops");
+                    if (oldScore > oldHighScore) {
+                        let score = 0;
+                        this.setState({ score, highscore: oldScore, selectedPictures: [], message: "New High Score!!!" });
+                        console.log(this.state);
+                        return;
+                    } else {
+                        let score = 0;
+                        this.setState({ score, selectedPictures: [], message: "Whoops! Care to try again?" });
+                        console.log(this.state);
+                        return;
+                    }
+                } else {
+                    statePictures.push(selectedName);
+                    let score = oldScore + 1;
+                    this.setState({ score, selectedPictures: statePictures, message: "Keep it up!" });
+                    console.log("third ",statePictures);
+                    console.log("score ", this.state.score);
+                    return;
+                }
+            }
         }
 
-        console.log(this.state);
+
+        // // if (statePictures.length === 0) {
+        // //     statePictures.push(selectedName);
+        // //     this.setState({ selectedPictures: statePictures });
+        // // } else {
+        //     for (let i = 0; i < statePictures.length; i++) {
+        //         if (selectedName === statePictures[i]) {
+        //             this.setState({ message: "Sorry", selectedPictures: [] })
+        //         } else {
+        //             statePictures.push(selectedName);
+        //             this.setState({ selectedPictures: statePictures });
+        //             // this.shufflefunction();
+        //         }
+        //     }
+        //}
+        console.log("getting here?", this.state);
     }
 
   render() {

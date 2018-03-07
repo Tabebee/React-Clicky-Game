@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 const Navmessage = ( {message} ) => {
     return(
-        <h4> { message } </h4>
+        <h4 className='w3-animate-left'> { message } </h4>
     )
 }
 
