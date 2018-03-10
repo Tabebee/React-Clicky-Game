@@ -9,14 +9,20 @@
   top: 0; /* Position the navbar at the top of the page */
   width: 100%; /* Full width */
   overflow: hidden;
-  background: darkblue !important;
+  /*background: darkblue !important;*/
+    z-index: 10;
 }
 
 .jumbotron {
   text-align: center;
+  padding-top: 15px;
   padding-bottom: 10px;
-  background: #496FC4;
+  /*background: url("./footer_lodyas.png");*/
+  background: #2B2B2B;
   color: snow;
+  width: 85%;
+  margin: auto;
+  margin-top: 70px;
 }
 
 img {
@@ -24,11 +30,11 @@ img {
   width: 180px;
   margin: 10px;
   border: 10px solid black;
-  /*background: cornsilk;*/
+  background: snow;
 }
 
 img:hover {
-  border: 5px solid darkblue;
+  border: 5px solid green;
 }
 
 .scoreBorder {
@@ -36,6 +42,17 @@ img:hover {
   margin-right: 2px;
 }
 
+body {
+    background: url("./darkness.png");
+    /*background-repeat: no-repeat;*/
+    height: 100%;
+    width: 100%;
+}
+
+.inBackground {
+    margin: auto;
+    text-align: center;
+}
 
 /*.App {*/
   /*text-align: center;*/

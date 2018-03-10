@@ -45,62 +45,50 @@ class App extends Component {
         return shuffleme;
     }
 
+    //  Grab the highscore and score from state and set them to variables
+    //  if answer wrong, grab score again
+    //      if the score is greater than highscore set highscore state = score and reset score state to 0
+    //      if the score is less than highscore reset score state to 0
+
     handleThis = (name) => {
         // this.setState({ message: "message changing" });
         this.shufflefunction();
         const selectedName = name;
         const statePictures = this.state.selectedPictures;
+        let newStatePictures = [];
+        statePictures.map(item => newStatePictures.push(item));
         let oldScore = this.state.score;
         let oldHighScore = this.state.highscore;
+        let checker;
 
-        if (statePictures.length === 0) {
-            statePictures.push(selectedName);
-            let score = oldScore + 1;
-            this.setState({ score, selectedPictures: statePictures, message: "Yay First Point!" });
-            console.log("first ",statePictures);
-            console.log("score ", this.state.score);
-            return;
-        } else if (statePictures.length > 0) {
-            for (let i = 0; i < statePictures.length; i++) {
-                if (selectedName === statePictures[i]) {
-                    console.log("whoops");
-                    if (oldScore > oldHighScore) {
-                        let score = 0;
-                        this.setState({ score, highscore: oldScore, selectedPictures: [], message: "New High Score!!!" });
-                        console.log(this.state);
-                        return;
-                    } else {
-                        let score = 0;
-                        this.setState({ score, selectedPictures: [], message: "Whoops! Care to try again?" });
-                        console.log(this.state);
-                        return;
-                    }
-                } else {
-                    statePictures.push(selectedName);
-                    let score = oldScore + 1;
-                    this.setState({ score, selectedPictures: statePictures, message: "Keep it up!" });
-                    console.log("third ",statePictures);
-                    console.log("score ", this.state.score);
-                    return;
+        if(statePictures.length === 0) {
+            newStatePictures.push(selectedName);
+            this.setState({ selectedPictures: newStatePictures, score: oldScore + 1 });
+
+        } else if(statePictures.length > 0) {
+        //    Check if selected image is in the state allready
+            newStatePictures.map(mapItem => {
+                if (mapItem === selectedName) {
+                    checker = "nope";
                 }
+            });
+        //    if item is already in state they lose
+            if ( (checker === "nope") && (oldScore > oldHighScore) ) {
+                const message = "Whoops!!! Care to try again?";
+                this.setState({ selectedPictures: [], highscore: oldScore, score: 0, message });
+            } else if (checker === "nope") {
+                newStatePictures.push(selectedName);
+                this.setState({ selectedPictures: [], score: 0 })
+            }
+            //  if right
+                // if right and new high score
+            else {
+                newStatePictures.push(selectedName);
+                const message = "Nice";
+                this.setState({ selectedPictures: newStatePictures, score: oldScore + 1, message })
             }
         }
 
-
-        // // if (statePictures.length === 0) {
-        // //     statePictures.push(selectedName);
-        // //     this.setState({ selectedPictures: statePictures });
-        // // } else {
-        //     for (let i = 0; i < statePictures.length; i++) {
-        //         if (selectedName === statePictures[i]) {
-        //             this.setState({ message: "Sorry", selectedPictures: [] })
-        //         } else {
-        //             statePictures.push(selectedName);
-        //             this.setState({ selectedPictures: statePictures });
-        //             // this.shufflefunction();
-        //         }
-        //     }
-        //}
         console.log("getting here?", this.state);
     }
 
@@ -113,14 +101,14 @@ class App extends Component {
                 message={ this.state.message }
             />
             <Jumbotron />
+            <div className='inBackground'>
             <Picturelist
                 pics={ this.state.pictures }
                 score={ this.state.score }
                 highscore={ this.state.highscore }
                 onImageSelect= { this.handleThis }
-
-                // close onImageSelect
             />
+            </div>
         </div>
     );
   }
@@ -135,3 +123,43 @@ export default App;
 //      .push to array and increment count
 //      else will reset the game
 //      message will appear for both with animation
+
+
+
+
+//************ NOT WORKING ****************************************
+// if (statePictures.length === 0) {
+//     statePictures.push(selectedName);
+//     let score = oldScore + 1;
+//     this.setState({ score, selectedPictures: statePictures, message: "Yay First Point!" });
+//     console.log("first ",statePictures);
+//     console.log("score ", this.state.score);
+//     // return;
+// } else if (statePictures.length > 0) {
+//     statePictures.map((mapThis,i,arr) => {
+//         console.log("mapper", mapThis);
+//         console.log("i", i);
+//         console.log("arr", arr);
+//
+//             if (selectedName === mapThis) {
+//                 console.log("whoops");
+//                 if (oldScore > oldHighScore) {
+//                     let score = 0;
+//                     this.setState({ score, highscore: oldScore, selectedPictures: [], message: "New High Score!!!" });
+//                     console.log(this.state);
+//                 } else {
+//                     let score = 0;
+//                     this.setState({ score, selectedPictures: [], message: "Whoops! Care to try again?" });
+//                     console.log(this.state);
+//                 }
+//             } else {
+//                 statePictures.push(selectedName);
+//                 let score = oldScore + 1;
+//                 this.setState({ score, selectedPictures: statePictures, message: "Keep it up!" });
+//                 console.log("third ",statePictures);
+//                 console.log("score ", this.state.score);
+//             }
+//
+//     }); // close mapper
+//
+// } // close if statement for statePictures

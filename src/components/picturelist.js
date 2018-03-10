@@ -4,6 +4,7 @@ import Pictures from './pictures';
 const Picturelist = (props) => { // Replace pics with ({}) variable in all areas
 // console.log("props ", props);
     const picItems = props.pics.map((picsArray) => {
+        // console.log("map ", picsArray);
         return (
                 <Pictures
                     pics={ picsArray }
