@@ -63,8 +63,8 @@ class App extends Component {
 
         if(statePictures.length === 0) {
             newStatePictures.push(selectedName);
-            this.setState({ selectedPictures: newStatePictures, score: oldScore + 1 });
-
+            const message = "First point. Keep it up!!!";
+            this.setState({ selectedPictures: newStatePictures, score: oldScore + 1, message });
         } else if(statePictures.length > 0) {
         //    Check if selected image is in the state allready
             newStatePictures.map(mapItem => {
@@ -77,12 +77,18 @@ class App extends Component {
                 const message = "Whoops!!! Care to try again?";
                 this.setState({ selectedPictures: [], highscore: oldScore, score: 0, message });
             } else if (checker === "nope") {
+                const message = "Whoops!!! Care to try again?";
                 newStatePictures.push(selectedName);
-                this.setState({ selectedPictures: [], score: 0 })
+                this.setState({ selectedPictures: [], score: 0, message })
             }
             //  if right
                 // if right and new high score
-            else {
+            else if (oldScore >= oldHighScore) {
+                newStatePictures.push(selectedName);
+                const message = "New High Score!!!";
+                const score = oldScore + 1;
+                this.setState({ selectedPictures: newStatePictures, score, highscore: score, message })
+            } else {
                 newStatePictures.push(selectedName);
                 const message = "Nice";
                 this.setState({ selectedPictures: newStatePictures, score: oldScore + 1, message })
