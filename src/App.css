@@ -23,6 +23,7 @@
   width: 85%;
   margin: auto;
   margin-top: 70px;
+  margin-bottom: 10px;
 }
 
 img {
@@ -35,6 +36,10 @@ img {
 
 img:hover {
   border: 5px solid green;
+  border-radius: 50%;
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
 }
 
 .scoreBorder {
