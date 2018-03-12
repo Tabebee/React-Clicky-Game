@@ -35,7 +35,8 @@ img {
 }
 
 img:hover {
-  border: 5px solid green;
+  border: 5px solid #C1C5C3;
+  /*background: ;*/
   border-radius: 50%;
   -webkit-transform: scale(1.2);
   -ms-transform: scale(1.2);
