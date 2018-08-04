@@ -96,6 +96,7 @@ class App extends Component {
         }
 
         console.log("getting here?", this.state);
+        window.scrollTo(0,0);
     }
 
   render() {
